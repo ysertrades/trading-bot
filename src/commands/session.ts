@@ -41,7 +41,7 @@ export class SessionCommand extends Command {
                 .setDescription("Which message to edit")
                 .setRequired(true)
                 .addChoices(
-                  { name: "🟢 Session Open", value: "open" },
+                  { name: "🟢 NYSE Open", value: "open" },
                   { name: "🔴 Market Close", value: "close" },
                   { name: "🟡 Futures Reopen", value: "reopen" }
                 )
@@ -73,7 +73,7 @@ export class SessionCommand extends Command {
                 .setDescription("Which to reset")
                 .setRequired(true)
                 .addChoices(
-                  { name: "🟢 Session Open", value: "open" },
+                  { name: "🟢 NYSE Open", value: "open" },
                   { name: "🔴 Market Close", value: "close" },
                   { name: "🟡 Futures Reopen", value: "reopen" },
                   { name: "⚠️ ALL TEMPLATES", value: "all" }
@@ -90,7 +90,7 @@ export class SessionCommand extends Command {
                 .setDescription("Which to test")
                 .setRequired(true)
                 .addChoices(
-                  { name: "🟢 Session Open", value: "open" },
+                  { name: "🟢 NYSE Open", value: "open" },
                   { name: "🔴 Market Close", value: "close" },
                   { name: "🟡 Futures Reopen", value: "reopen" }
                 )
