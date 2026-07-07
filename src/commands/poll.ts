@@ -106,7 +106,7 @@ export class PollCommand extends Command {
       const updated = buildEmbed({
         title: `📊 ${symbol.toUpperCase()} BIAS POLL`,
         description: `**${question}**\n\n${bar(bullishPct, "🟢")}\n${bar(bearishPct, "🔴")}\n${bar(neutralPct, "🟡")}\n\n📊 **Total:** ${total}`,
-        color: embedColor,
+        color: 0x474747,
         imageUrl: imageUrl ?? undefined,
         footer: { text: `Poll by ${interaction.user.tag} • Live` },
         timestamp: Date.now(),
@@ -120,7 +120,7 @@ export class PollCommand extends Command {
       const final = buildEmbed({
         title: `📊 ${symbol.toUpperCase()} BIAS POLL — CLOSED`,
         description: `**${question}**\n\n🟢 Bullish: ${votes.bullish.size}\n🔴 Bearish: ${votes.bearish.size}\n🟡 Neutral: ${votes.neutral.size}\n\n📊 **Total:** ${total}`,
-        color: #474747,
+        color: 0x474747,
         imageUrl: imageUrl ?? undefined,
         footer: { text: "Poll closed • Final Results" },
         timestamp: Date.now(),
