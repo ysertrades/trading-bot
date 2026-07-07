@@ -87,7 +87,9 @@ export async function sendSessionOpen(channel: TextBasedChannel, guildId: string
     timestamp: Date.now(),
   });
 
-  await channel.send({ embeds: [embed] });
+  if ('send' in channel) {
+    await channel.send({ embeds: [embed] });
+  }
 }
 
 export async function sendMarketClose(channel: TextBasedChannel, guildId: string, customColor?: string) {
@@ -105,7 +107,9 @@ export async function sendMarketClose(channel: TextBasedChannel, guildId: string
     timestamp: Date.now(),
   });
 
-  await channel.send({ embeds: [embed] });
+  if ('send' in channel) {
+    await channel.send({ embeds: [embed] });
+  }
 }
 
 export async function sendFuturesReopen(channel: TextBasedChannel, guildId: string, customColor?: string) {
@@ -123,7 +127,9 @@ export async function sendFuturesReopen(channel: TextBasedChannel, guildId: stri
     timestamp: Date.now(),
   });
 
-  await channel.send({ embeds: [embed] });
+  if ('send' in channel) {
+    await channel.send({ embeds: [embed] });
+  }
 }
 
 const jobs: CronJob[] = [];
