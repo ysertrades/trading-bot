@@ -60,7 +60,7 @@ export class PollCommand extends Command {
     const embed = buildEmbed({
       title: `📊 ${symbol.toUpperCase()} BIAS POLL`,
       description: `**${question}**\n\n🟢 **Bullish** — Green button\n🔴 **Bearish** — Red button\n🟡 **Neutral** — Yellow button`,
-      color: embedColor,
+      color: 0x474747,
       imageUrl: imageUrl ?? undefined,
       footer: { text: `Poll by ${interaction.user.tag} • Expires in ${this.formatDuration(expiryMs)}` },
       timestamp: Date.now(),
