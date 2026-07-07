@@ -59,7 +59,6 @@ export class PollCommand extends Command {
 
     const embed = buildEmbed({
       title: `📊 ${symbol.toUpperCase()} BIAS POLL`,
-      description: `**${question}**\n\n🟢 **Bullish** — Green button\n🔴 **Bearish** — Red button\n🟡 **Neutral** — Yellow button`,
       color: 0x474747,
       imageUrl: imageUrl ?? undefined,
       footer: { text: `Poll by ${interaction.user.tag} • Expires in ${this.formatDuration(expiryMs)}` },
@@ -67,9 +66,9 @@ export class PollCommand extends Command {
     });
 
     const row = new ActionRowBuilder<ButtonBuilder>().addComponents(
-      new ButtonBuilder().setCustomId("poll_bullish").setLabel("Bullish 🟢").setStyle(ButtonStyle.Success),
-      new ButtonBuilder().setCustomId("poll_bearish").setLabel("Bearish 🔴").setStyle(ButtonStyle.Danger),
-      new ButtonBuilder().setCustomId("poll_neutral").setLabel("Neutral 🟡").setStyle(ButtonStyle.Primary)
+      new ButtonBuilder().setCustomId("poll_bullish").setLabel("Bullish 📈").setStyle(ButtonStyle.Success),
+      new ButtonBuilder().setCustomId("poll_bearish").setLabel("Bearish 📉").setStyle(ButtonStyle.Danger),
+      new ButtonBuilder().setCustomId("poll_neutral").setLabel("Neutral 😑").setStyle(ButtonStyle.Primary)
     );
 
     const message = await interaction.reply({ embeds: [embed], components: [row], fetchReply: true });
@@ -105,7 +104,7 @@ export class PollCommand extends Command {
 
       const updated = buildEmbed({
         title: `📊 ${symbol.toUpperCase()} BIAS POLL`,
-        description: `**${question}**\n\n${bar(bullishPct, "🟢")}\n${bar(bearishPct, "🔴")}\n${bar(neutralPct, "🟡")}\n\n📊 **Total:** ${total}`,
+        description: `**${question}**\n\n${bar(bullishPct, "📈")}\n${bar(bearishPct, "📉")}\n${bar(neutralPct, "😑")}\n\n📊 **Total:** ${total}`,
         color: 0x474747,
         imageUrl: imageUrl ?? undefined,
         footer: { text: `Poll by ${interaction.user.tag} • Live` },
@@ -119,7 +118,7 @@ export class PollCommand extends Command {
       const total = votes.bullish.size + votes.bearish.size + votes.neutral.size;
       const final = buildEmbed({
         title: `📊 ${symbol.toUpperCase()} BIAS POLL — CLOSED`,
-        description: `**${question}**\n\n🟢 Bullish: ${votes.bullish.size}\n🔴 Bearish: ${votes.bearish.size}\n🟡 Neutral: ${votes.neutral.size}\n\n📊 **Total:** ${total}`,
+        description: `**${question}**\n\n📈 Bullish: ${votes.bullish.size}\n📉 Bearish: ${votes.bearish.size}\n😑 Neutral: ${votes.neutral.size}\n\n📊 **Total:** ${total}`,
         color: 0x474747,
         imageUrl: imageUrl ?? undefined,
         footer: { text: "Poll closed • Final Results" },
